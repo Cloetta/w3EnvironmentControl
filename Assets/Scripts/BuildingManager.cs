@@ -15,6 +15,13 @@ public class BuildingManager : MonoBehaviour
     [SerializeField]
     private LayerMask layerMask;
 
+    public float gridSize;
+    bool gridOn = true;
+    public float rotateAmount;
+
+    [SerializeField]
+    private Toggle gridToggle;
+
 
 
     private void FixedUpdate()
@@ -31,11 +38,26 @@ public class BuildingManager : MonoBehaviour
     {
         if (pendingObject != null)
         {
-            pendingObject.transform.position = pos;
+
+            if (gridOn)
+            {
+                pendingObject.transform.position = new Vector3(RoundToNearestGrid(pos.x), RoundToNearestGrid(pos.y), RoundToNearestGrid(pos.z));
+            }
+            else
+            {
+                pendingObject.transform.position = pos;
+            }
+
+            
 
             if (Input.GetMouseButtonDown(0))
             {
                 PlaceObject();
+            }
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                RotateObject();
             }
         }
     }
@@ -50,6 +72,36 @@ public class BuildingManager : MonoBehaviour
         pendingObject = null;
     }
 
+
+    public void RotateObject()
+    {
+        pendingObject.transform.Rotate(Vector3.up, rotateAmount);
+    }
+
+
+    public void ToggleGrid()
+    {
+        if (gridToggle.isOn)
+        {
+            gridOn = true;
+        }
+        else
+        {
+            gridOn = false;
+        }
+    }
+
+    float RoundToNearestGrid(float pos)
+    {
+        float xDiff = pos % gridSize;
+        pos -= xDiff;
+        if (xDiff > (gridSize/2))
+        {
+            pos += gridSize;
+        }
+
+        return pos;
+    }
 
 
 }
