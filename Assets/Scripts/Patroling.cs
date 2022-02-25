@@ -47,6 +47,13 @@ public class Patroling : MonoBehaviour
     void Update()
     {
 
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Sphere height: " + this.transform.position.y);
+        }
+
+
         if (Time.time >= nextWaypointTime)
         {
             SetDestination();

@@ -17,8 +17,9 @@ public class GameManager : MonoBehaviour
     
     void Update()
     {
-        if (cube.isGrounded == false)
+        if (cube.isGrounded == false && cube.transform.position.y <= -2)
         {
+            
             SceneManager.LoadScene("GameOver");
         }
         //else if
