@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0.3}
+  m_AnchoredPosition: {x: 0.000030517578, y: -6.3}
   m_SizeDelta: {x: 0, y: 3.7373047}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &13829091
@@ -693,7 +693,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Instructions:\nKeep the ball in on the board for 120 seconds. Use the
+  m_Text: "Instructions:\nKeep the ball in on the board for 100 seconds. Use the
     shapes to keep the ball from falling!\nControls: \n- Mouse click, place object\n-
     R, rotate object"
 --- !u!222 &551608129
@@ -1808,7 +1808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txtCooldown: {fileID: 1595069660}
   isTimeOver: 0
-  countdownTimer: 120
+  countdownTimer: 100
 --- !u!1 &1582018913
 GameObject:
   m_ObjectHideFlags: 0
